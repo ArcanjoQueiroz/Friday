@@ -10,7 +10,10 @@ import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
@@ -134,6 +137,23 @@ public class MainActivity extends LocationActivity {
             this.textToSpeech.speak(text, TextToSpeech.QUEUE_ADD, null, null);
         } else {
             this.textToSpeech.speak(text, TextToSpeech.QUEUE_ADD, null);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+                Toast.makeText(this, "You have selected Settings Menu", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

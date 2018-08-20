@@ -3,5 +3,6 @@
     <string name="hello_friday">Olá, Friday!</string>
     <string name="locale">pt_BR</string>
     <string name="user_name">Alexandre</string>
+    <string name="settings">Settings</string>
 </resources>
 
