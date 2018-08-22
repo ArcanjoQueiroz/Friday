@@ -4,5 +4,7 @@
     <string name="locale">pt_BR</string>
     <string name="user_name">Alexandre</string>
     <string name="settings">Settings</string>
+    <string name="settings_locale">locale</string>
+    <string name="settings_name">name</string>
 </resources>
 

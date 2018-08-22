@@ -3,9 +3,9 @@
 
     <PreferenceCategory android:title="General">
         <EditTextPreference
-            android:key="name"
+            android:key="@string/settings_name"
             android:selectAllOnFocus="true"
-            android:summary="name"
+            android:summary="Type your name"
             android:singleLine="true"
             android:title="Your name" />
     </PreferenceCategory>
@@ -15,8 +15,8 @@
             android:dialogTitle="Locale"
             android:entries="@array/locales"
             android:entryValues="@array/locales"
-            android:key="Locale"
-            android:summary="Locale"
+            android:key="@string/settings_locale"
+            android:summary="Your language and country"
             android:title="Locale" />
     </PreferenceCategory>
 </PreferenceScreen>

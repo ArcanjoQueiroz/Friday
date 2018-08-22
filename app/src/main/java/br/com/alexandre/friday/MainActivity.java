@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActivityCompat;
@@ -30,9 +31,7 @@ public class MainActivity extends LocationActivity {
     private static final int REQUEST_INTERNET_PERMISSION = 505;
     private static final int REQUEST_READ_CONTACTS_PERMISSION = 506;
 
-
     private Backend backend;
-    private String userName;
     private TextToSpeech textToSpeech;
     private Button button;
     private Locale locale;
@@ -44,13 +43,19 @@ public class MainActivity extends LocationActivity {
 
         this.checkPermissions();
 
-        this.locale = new Locale(getResources().getString(R.string.locale));
+        this.locale = new Locale(PreferenceManager.getDefaultSharedPreferences(getBaseContext())
+                .getString(getString(R.string.settings_locale), "pt_BR"));
 
         this.backend = new BackendService();
 
-        this.userName = getResources().getString(R.string.user_name);
+        this.textToSpeech = createTextToSpeech(this.locale);
 
-        this.textToSpeech = new TextToSpeech(this, status -> {
+        button = (Button) findViewById(R.id.hello_friday);
+        button.setOnClickListener(view -> ask() );
+    }
+
+    private TextToSpeech createTextToSpeech(final Locale locale) {
+        return new TextToSpeech(this, status -> {
             if (status == TextToSpeech.SUCCESS) {
                 final int result = textToSpeech.setLanguage(locale);
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
@@ -59,9 +64,6 @@ public class MainActivity extends LocationActivity {
                 }
             }
         });
-
-        button = (Button) findViewById(R.id.hello_friday);
-        button.setOnClickListener(view -> ask() );
     }
 
     protected void checkPermissions() {
@@ -120,6 +122,9 @@ public class MainActivity extends LocationActivity {
     private void answer(final String text) {
         try {
             Log.i("Request", text);
+            final String userName = PreferenceManager.getDefaultSharedPreferences(getBaseContext())
+                    .getString(getString(R.string.settings_name), "Alexandre");
+
             new Answer(this.backend, new Answer.Context(userName, getApplication(), this.getLocation()))
                     .execute(text)
                     .get().forEach(this::speak);
@@ -158,4 +163,28 @@ public class MainActivity extends LocationActivity {
         }
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            final Locale selectedLocale = new Locale(PreferenceManager.getDefaultSharedPreferences(getBaseContext())
+                    .getString(getString(R.string.settings_locale), "pt_BR"));
+            if (this.locale.equals(selectedLocale)) {
+                Log.i("Language", "Locale not changed: " + this.locale);
+            } else {
+                Log.i("Language", "Locale changed to: " + selectedLocale);
+                this.textToSpeech.shutdown();
+                this.textToSpeech = createTextToSpeech(selectedLocale);
+                this.locale = selectedLocale;
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (this.textToSpeech != null) {
+            this.textToSpeech.shutdown();
+        }
+    }
 }
