@@ -1,11 +1,8 @@
 package br.com.alexandre.friday.service;
 
 import android.app.Application;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.io.IOException;

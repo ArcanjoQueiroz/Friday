@@ -34,4 +34,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'org.slf4j:slf4j-android:1.7.25'
     implementation 'com.google.android.gms:play-services:11.0.4'
+    implementation project(path: ':recognition')
 }
