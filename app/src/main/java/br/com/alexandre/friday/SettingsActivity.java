@@ -23,13 +23,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
             setPreference(R.string.settings_name);
             setPreference(R.string.settings_locale);
+            setPreference(R.string.settings_location_request_interval);
+            setPreference(R.string.settings_location_request_fastest_interval);
+            setPreference(R.string.settings_smallest_displacement);
         }
 
         private void setPreference(int resId) {
             final Preference preference = findPreference(getString(resId));
             preference.setSummary(PreferenceManager
                     .getDefaultSharedPreferences(preference.getContext())
-                    .getString(preference.getKey(), ""));
+                    .getString(preference.getKey(), null));
             preference.setOnPreferenceChangeListener((p, newValue) -> {
                 final String value = newValue.toString();
                 p.setSummary(value);

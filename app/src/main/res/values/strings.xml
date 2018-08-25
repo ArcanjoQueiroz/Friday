@@ -1,10 +1,38 @@
 <resources>
     <string name="app_name">Friday</string>
-    <string name="hello_friday">Olá, Friday!</string>
-    <string name="locale">pt_BR</string>
-    <string name="user_name">Alexandre</string>
+    <string name="hello_friday">Hello, Friday!</string>
     <string name="settings">Settings</string>
-    <string name="settings_locale">locale</string>
-    <string name="settings_name">name</string>
-</resources>
+    <string name="extra_prompt">Ask something to Friday!!!</string>
 
+    <!-- Settings fields -->
+    <string name="settings_name">name</string>
+    <string name="settings_name_summary">Type your name</string>
+    <string name="settings_name_title">Your name</string>
+    <string name="settings_name_default_value">Alexandre</string>
+
+    <string name="settings_locale">locale</string>
+    <string name="settings_locale_summary">Your language and country</string>
+    <string name="settings_locale_title">Locale</string>
+    <string name="settings_locale_default_value">pt_BR</string>
+
+    <string name="settings_location_request_interval">location_request_interval</string>
+    <string name="settings_location_request_interval_summary">Location request interval in ms</string>
+    <string name="settings_location_request_interval_title">Location request interval</string>
+    <string name="settings_location_request_interval_default_value">10000</string>
+
+    <string name="settings_location_request_fastest_interval">location_request_fastest_interval</string>
+    <string name="settings_location_request_fastest_interval_summary">Location request fastest interval in ms</string>
+    <string name="settings_location_request_fastest_interval_title">Location request fastest interval</string>
+    <string name="settings_request_fastest_interval_default_value">5000</string>
+
+    <string name="settings_smallest_displacement">smallest_displacement</string>
+    <string name="settings_smallest_displacement_summary">Smallest displacement</string>
+    <string name="settings_smallest_displacement_title">Smallest displacement</string>
+    <string name="settings_smallest_displacement_default_value">1</string>
+
+
+
+
+
+
+</resources>

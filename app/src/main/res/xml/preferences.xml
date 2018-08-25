@@ -5,9 +5,10 @@
         <EditTextPreference
             android:key="@string/settings_name"
             android:selectAllOnFocus="true"
-            android:summary="Type your name"
+            android:summary="@string/settings_name_summary"
             android:singleLine="true"
-            android:title="Your name" />
+            android:defaultValue="@string/settings_name_default_value"
+            android:title="@string/settings_name_title" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Language">
@@ -16,7 +17,35 @@
             android:entries="@array/locales"
             android:entryValues="@array/locales"
             android:key="@string/settings_locale"
-            android:summary="Your language and country"
-            android:title="Locale" />
+            android:summary="@string/settings_locale_summary"
+            android:defaultValue="@string/settings_locale_default_value"
+            android:title="@string/settings_locale_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Recognition">
+        <EditTextPreference
+            android:key="@string/settings_location_request_interval"
+            android:selectAllOnFocus="true"
+            android:summary="@string/settings_location_request_interval_summary"
+            android:singleLine="true"
+            android:numeric="integer"
+            android:defaultValue="@string/settings_location_request_interval_default_value"
+            android:title="@string/settings_location_request_interval_title" />
+        <EditTextPreference
+            android:key="@string/settings_location_request_fastest_interval"
+            android:selectAllOnFocus="true"
+            android:summary="@string/settings_location_request_fastest_interval_summary"
+            android:singleLine="true"
+            android:numeric="integer"
+            android:defaultValue="@string/settings_request_fastest_interval_default_value"
+            android:title="@string/settings_location_request_fastest_interval_title" />
+        <EditTextPreference
+            android:key="@string/settings_smallest_displacement"
+            android:selectAllOnFocus="true"
+            android:summary="@string/settings_smallest_displacement_summary"
+            android:singleLine="true"
+            android:numeric="decimal"
+            android:defaultValue="@string/settings_smallest_displacement_default_value"
+            android:title="@string/settings_smallest_displacement_title" />
     </PreferenceCategory>
 </PreferenceScreen>

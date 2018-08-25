@@ -19,13 +19,11 @@ import com.google.android.gms.location.LocationListener;
 public abstract class LocationActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private GoogleApiClient googleApiClient;
     private Location location;
+    private int locationRequestInterval;
+    private int locationRequestFastestInterval;
+    private float smallestDisplacement;
 
     private static final int REQUEST_LOCATION_PERMISSION = 504;
-
-    // TODO
-    public static final int LOCATION_REQUEST_INTERVAL = 10000;
-    public static final int LOCATION_REQUEST_FASTEST_INTERVAL = 5000;
-    private static final float SMALLEST_DISPLACEMENT = 1;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -51,9 +49,9 @@ public abstract class LocationActivity extends AppCompatActivity implements Goog
                             android.Manifest.permission.ACCESS_COARSE_LOCATION }, REQUEST_LOCATION_PERMISSION);
         } else {
             final LocationRequest locationRequest = new LocationRequest();
-            locationRequest.setSmallestDisplacement(SMALLEST_DISPLACEMENT);
-            locationRequest.setInterval(LOCATION_REQUEST_INTERVAL);
-            locationRequest.setFastestInterval(LOCATION_REQUEST_FASTEST_INTERVAL);
+            locationRequest.setSmallestDisplacement(smallestDisplacement);
+            locationRequest.setInterval(locationRequestInterval);
+            locationRequest.setFastestInterval(locationRequestFastestInterval);
             locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
             LocationServices.FusedLocationApi.requestLocationUpdates(this.googleApiClient, locationRequest, this);
@@ -74,7 +72,7 @@ public abstract class LocationActivity extends AppCompatActivity implements Goog
         }
     }
 
-        @Override
+    @Override
     public void onLocationChanged(final Location location) {
         this.location = location;
      }
@@ -91,5 +89,29 @@ public abstract class LocationActivity extends AppCompatActivity implements Goog
 
     protected Location getLocation() {
         return this.location;
+    }
+
+    protected int getLocationRequestInterval() {
+        return locationRequestInterval;
+    }
+
+    protected void setLocationRequestInterval(int locationRequestInterval) {
+        this.locationRequestInterval = locationRequestInterval;
+    }
+
+    protected int getLocationRequestFastestInterval() {
+        return locationRequestFastestInterval;
+    }
+
+    protected void setLocationRequestFastestInterval(int locationRequestFastestInterval) {
+        this.locationRequestFastestInterval = locationRequestFastestInterval;
+    }
+
+    protected float getSmallestDisplacement() {
+        return smallestDisplacement;
+    }
+
+    protected void setSmallestDisplacement(float smallestDisplacement) {
+        this.smallestDisplacement = smallestDisplacement;
     }
 }
