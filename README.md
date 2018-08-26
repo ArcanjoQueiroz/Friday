@@ -1,10 +1,19 @@
 # Friday
 
-Friday é um projeto de assistente pessoal baseado na IA assistente do Homem-de-Ferro chamada Friday que durante a história substituiu o Jarvis após ele se tornar o Visão.
+Friday is a personal assistant for Android 7.1.1+. The name "Friday" is based on Iron-Man's assistant F.R.I.D.A.Y. who replaces Jarvis (J. A. R. V. I. S.) after he became Vision in MCU movies.
 
-## Suporte
+## Environment
 
-Android versão 7.1.1
+**Installing sdkman.io**
 
+```sh
+$ curl -s "https://get.sdkman.io" | bash
+```
 
+**Installing environment**
 
+```sh
+$ sdk install java 8.0.181-zulu
+$ sdk install gradle 4.9
+$ sdk install kotlin 1.2.61
+```

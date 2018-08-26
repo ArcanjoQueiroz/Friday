@@ -21,7 +21,7 @@ import br.com.alexandre.friday.recognize.chain.LocationChain;
 import br.com.alexandre.friday.recognize.chain.NeighborhoodChain;
 import br.com.alexandre.friday.recognize.chain.StreetChain;
 import br.com.alexandre.friday.recognize.chain.SuccessfulMessageSentChain;
-import br.com.alexandre.friday.recognize.chain.ThankYouChain;
+import br.com.alexandre.friday.recognize.chain.YouReWelcomeChain;
 import br.com.alexandre.friday.task.Answer;
 
 public class BackendService implements Backend {
@@ -37,7 +37,7 @@ public class BackendService implements Backend {
                 new NeighborhoodChain(),
                 new StreetChain(),
                 new SuccessfulMessageSentChain(),
-                new ThankYouChain()
+                new YouReWelcomeChain()
         ));
 
     public BackendService() { }
