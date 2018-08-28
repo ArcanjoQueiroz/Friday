@@ -16,6 +16,6 @@ class DontMakeMistakesChain: RecognizerChain() {
 
 
     override fun apply(request: RecognizerRequest?): Boolean {
-        return request?.q!!.contains("você") && request?.q!!.contains("errou")
+        return request?.q!!.contains("você") && request.q!!.contains("errou")
     }
 }
