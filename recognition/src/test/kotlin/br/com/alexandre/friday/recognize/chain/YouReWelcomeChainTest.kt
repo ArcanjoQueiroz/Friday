@@ -1,7 +1,6 @@
-package br.com.alexandre.friday.recognition.chain
+package br.com.alexandre.friday.recognize.chain
 
 import br.com.alexandre.friday.recognize.RecognizerRequest
-import br.com.alexandre.friday.recognize.chain.YouReWelcomeChain
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
