@@ -53,7 +53,6 @@ public class BackendService implements Backend {
 
             final Address address = getAddress(context.getApplication(), context.getLocation().getLatitude(), context.getLocation().getLongitude());
             if (address != null) {
-                request.setCountryName(address.getCountryName());
                 request.setLocality(address.getLocality());
                 request.setSubLocality(address.getSubLocality());
                 request.setThoroughfare(address.getThoroughfare());

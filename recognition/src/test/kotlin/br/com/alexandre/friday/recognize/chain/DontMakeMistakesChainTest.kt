@@ -1,6 +1,5 @@
 package br.com.alexandre.friday.recognize.chain
 
-import br.com.alexandre.friday.recognize.RecognizerRequest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

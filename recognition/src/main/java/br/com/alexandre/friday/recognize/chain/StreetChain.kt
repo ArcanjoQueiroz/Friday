@@ -6,7 +6,7 @@ import java.util.*
 
 class StreetChain: RecognizerChain() {
     override fun execute(request: RecognizerRequest?): MutableCollection<String> {
-        var response = if (request?.subThoroughfare == null || request.subThoroughfare.trim { it <= ' ' }.isEmpty()) {
+        var response = if (request?.subThoroughfare == null || request.subThoroughfare!!.trim { it <= ' ' }.isEmpty()) {
             String.format("Você está na %s", request?.thoroughfare)
         } else {
             String.format("Você está na %s, número %s", request.thoroughfare, request.subThoroughfare)

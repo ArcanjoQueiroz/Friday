@@ -4,7 +4,6 @@ import br.com.alexandre.friday.recognize.RecognizerChain
 import br.com.alexandre.friday.recognize.RecognizerRequest
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.text.NumberFormat
 import java.util.*
 
 class LocationChain: RecognizerChain() {
