@@ -4,9 +4,10 @@ sudo: false
 
 android:
   components:
-    - platform-tools
     - tools
     - build-tools-27.0.3
+    - platform-tools
+    - tools
     - android-26
     - android-22
     - extra-google-google_play_services
