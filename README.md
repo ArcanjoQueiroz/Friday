@@ -1,5 +1,7 @@
 # Friday
 
+[![Build Status](https://travis-ci.com/ArcanjoQueiroz/friday.svg?branch=master)](https://travis-ci.com/ArcanjoQueiroz/friday)
+
 Friday is a personal assistant for Android 7.1.1+. The name "Friday" is based on Iron-Man's assistant F.R.I.D.A.Y. who replaces Jarvis (J. A. R. V. I. S.) after he became Vision in MCU movies.
 
 ## Environment

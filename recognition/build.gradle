@@ -13,6 +13,7 @@ targetCompatibility = "1.8"
 buildscript {
     ext.kotlin_version = '1.2.61'
     repositories {
+        google()
         mavenCentral()
     }
     dependencies {
@@ -20,6 +21,7 @@ buildscript {
     }
 }
 repositories {
+    google()
     mavenCentral()
 }
 compileKotlin {
